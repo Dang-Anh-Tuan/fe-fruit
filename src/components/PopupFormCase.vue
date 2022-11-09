@@ -71,6 +71,8 @@ export default {
       },
 
       validator: {
+        fruit: [required()],
+        size: [required()],
         long: [required()],
         width: [required()],
         weight: [required()],

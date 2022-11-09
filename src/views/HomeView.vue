@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-row justify="center" class="my-5">
-      <h3 class="orange--text lighten-2 display-1">
-        Nhận diện tình trạng hoa quả
-      </h3>
+      <h4 class="orange--text lighten-2 display-1">
+        Chọn loại quả để dự đoán tình trạng
+      </h4>
     </v-row>
     <v-row>
       <v-col

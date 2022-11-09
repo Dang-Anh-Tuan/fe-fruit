@@ -29,15 +29,17 @@
                     type="password"
                     v-model="password"
                   ></v-text-field>
-
-                  <router-link
-                    :to="{
-                      path: '/login',
-                    }"
-                    class="btn-register"
-                  >
-                    <span> Login </span>
-                  </router-link>
+                  <v-row class="mt-3 ml-2">
+                    <vue-card-text class="black--text">Do you have account? =></vue-card-text>
+                    <router-link
+                        :to="{
+                          path: '/login',
+                        }"
+                        class="btn-register"
+                      >
+                        <span > Login </span>
+                    </router-link>
+                  </v-row>
                 </v-form>
               </v-card-text>
               <v-card-actions>

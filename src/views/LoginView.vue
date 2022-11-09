@@ -24,6 +24,7 @@
                     v-model="password"
                   ></v-text-field>
                   <v-row class="mt-3 ml-2">
+                    <vue-card-text class="black--text">Don't have an account? =></vue-card-text>
                     <router-link
                       :to="{
                         path: '/register',

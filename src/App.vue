@@ -7,6 +7,9 @@
         dark
         scroll-target="#scrolling-techniques-6"
       >
+      <v-card-title class="black--text orange lighten-2">
+        HỆ THỐNG DỰ ĐOÁN TÌNH TRẠNG HOA QUẢ
+      </v-card-title>
         <v-app-bar-nav-icon @click="handleLogout">
           <v-icon> mdi-logout </v-icon>
         </v-app-bar-nav-icon>

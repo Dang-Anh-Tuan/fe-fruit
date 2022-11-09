@@ -2,7 +2,7 @@
   <v-dialog v-model="getShow" width="500" persistent>
     <v-card>
       <v-card-title class="white--text orange lighten-2">
-        Kết quả
+        <h4> Kết quả </h4>
       </v-card-title>
 
       <v-container class="px-10 flex">
@@ -11,6 +11,17 @@
           <v-card-text class="quality-text">
             {{ quality ? quality.type : "" }}
           </v-card-text>
+          <v-card-title class="lk">
+            <div class="black--text" v-if="quality.id == 1">
+              Lời khuyên: Quả vẫn xanh, bạn nên đợi đến khi quả chín ăn sẽ ngon hơn và quả sẽ đảm bảo dưỡng chất hơn!
+            </div>
+            <div class="black--text" v-else-if="quality.id == 2">
+              Lời khuyên: Quả đã chín rồi, bạn hãy thưởng thức luôn để cảm nhận hương vị ngon nhất nhé!
+            </div>
+            <div class="black--text" v-else>
+              Lời khuyên: Quả đã có hiện tượng bị hư hỏng, bạn không nên ăn vì bạn sẽ rất dễ bị ngộ độc đấy!
+            </div>
+          </v-card-title>
         </div>
       </v-container>
       <v-card-actions class="pb-5">
@@ -81,5 +92,9 @@ export default {
   height: 200px;
   object-fit: contain;
   object-position: center;
+}
+
+.lk {
+  white-space: pre-wrap;
 }
 </style>

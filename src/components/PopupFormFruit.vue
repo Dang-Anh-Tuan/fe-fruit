@@ -2,7 +2,7 @@
   <v-dialog v-model="getShow" width="500" persistent>
     <v-card>
       <v-card-title class="white--text orange lighten-2">
-        Nhập thông tin quả
+        Nhập thông tin quả 
       </v-card-title>
 
       <v-container class="px-10">

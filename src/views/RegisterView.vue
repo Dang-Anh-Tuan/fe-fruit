@@ -31,13 +31,13 @@
                   ></v-text-field>
 
                   <router-link
-                      :to="{
-                        path: '/login',
-                      }"
-                      class="btn-register"
-                    >
-                      <span > Login </span>
-                    </router-link>
+                    :to="{
+                      path: '/login',
+                    }"
+                    class="btn-register"
+                  >
+                    <span> Login </span>
+                  </router-link>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import { register } from "@/api";
+
 export default {
   data() {
     return {
@@ -62,22 +64,28 @@ export default {
     };
   },
   methods: {
-    register() {
-      console.log(this.username);
-      console.log(this.password);
-      console.log(this.register);
-      sessionStorage.setItem("isLogin", true);
-      // sessionStorage.setItem("role", "admin")
+    async register() {
+      const result = await register({
+        usernameU: this.username,
+        passwordU: this.password,
+      });
 
-      this.$router.push("/");
+      if (result) {
+        sessionStorage.setItem("isLogin", true);
+        sessionStorage.setItem("role", "user");
+
+        this.$router.push("/");
+      } else {
+        alert("Username is exist");
+        (this.username = ""), (this.password = ""), (this.email = "");
+      }
     },
   },
 };
 </script>
 
-
 <style>
-.btn-register{
+.btn-register {
   text-decoration: none !important;
   font-style: italic;
 }

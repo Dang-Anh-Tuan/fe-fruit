@@ -35,3 +35,16 @@ export const createCases = async (dataCases) => {
   const result = await axiosClient.post(url, dataCases);
   return result;
 };
+
+export const login = async (data) => {
+  const url = "/api/login";
+  const result = await axiosClient.post(url, data);
+  return result;
+};
+
+export const register = async (data) => {
+  const url = "/api/register";
+  const result = await axiosClient.post(url, data);
+  return result;
+};
+

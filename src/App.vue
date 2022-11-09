@@ -25,6 +25,8 @@ export default {
   methods: {
     handleLogout() {
       sessionStorage.setItem("isLogin", false);
+      sessionStorage.setItem("role", null);
+
       this.$router.push("/login");
     },
   },

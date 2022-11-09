@@ -30,7 +30,7 @@
                       }"
                       class="btn-register"
                     >
-                      <span > Register </span>
+                      <span> Register </span>
                     </router-link>
                   </v-row>
                 </v-form>
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import { login } from "@/api";
+
 export default {
   data() {
     return {
@@ -56,20 +58,34 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
       console.log(this.username);
       console.log(this.password);
-      sessionStorage.setItem("isLogin", true);
-      // sessionStorage.setItem("role", "admin")
-
-      this.$router.push("/");
+      const data = {
+        usernameU: this.username,
+        passwordU: this.password,
+      };
+      const user = await login(data);
+      if (!user) {
+        this.username = "";
+        this.password = "";
+        alert("Login invalid");
+      } else if (user.role === "admin") {
+        sessionStorage.setItem("isLogin", true);
+        sessionStorage.setItem("role", "admin");
+        this.$router.push("/admin");
+      } else if (user.role === "user") {
+        sessionStorage.setItem("isLogin", true);
+        sessionStorage.setItem("role", "user");
+        this.$router.push("/");
+      }
     },
   },
 };
 </script>
 
 <style>
-.btn-register{
+.btn-register {
   text-decoration: none !important;
   font-style: italic;
 }
